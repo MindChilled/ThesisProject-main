@@ -64,16 +64,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BaseItemSlot.cs" />
     <Compile Include="Assets\Scripts\CharacterMovementScript.cs" />
     <Compile Include="Assets\Scripts\CombatEnemy.cs" />
     <Compile Include="Assets\Scripts\CombatSwing.cs" />
-    <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\CraftingRecipes.cs" />
+    <Compile Include="Assets\Scripts\CraftingRecipeUI.cs" />
+    <Compile Include="Assets\Scripts\CraftingWindow.cs" />
+    <Compile Include="Assets\Scripts\DummyEnemyScript.cs" />
+    <Compile Include="Assets\Scripts\EnemyScript.cs" />
+    <Compile Include="Assets\Scripts\IItemContainer.cs" />
+    <Compile Include="Assets\Scripts\InventoryScript.cs" />
+    <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\ItemAssets.cs" />
-    <Compile Include="Assets\Scripts\Items.cs" />
+    <Compile Include="Assets\Scripts\ItemChest.cs" />
+    <Compile Include="Assets\Scripts\ItemContainer.cs" />
+    <Compile Include="Assets\Scripts\ItemScript.cs" />
+    <Compile Include="Assets\Scripts\ItemSlot.cs" />
     <Compile Include="Assets\Scripts\ItemWorld.cs" />
+    <Compile Include="Assets\Scripts\KnockbackScript.cs" />
     <Compile Include="Assets\Scripts\PlayerControlScript.cs" />
     <Compile Include="Assets\Scripts\SignScript.cs" />
-    <Compile Include="Assets\Scripts\UI_Inventory.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

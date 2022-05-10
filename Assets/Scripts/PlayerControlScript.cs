@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerControlScript : MonoBehaviour
 {
 
-    [SerializeField] private UI_Inventory uiInventory;
-    private Inventory inventory;
+    //[SerializeField] private UI_Inventory uiInventory;
+    //private Inventory inventory;
     // Start is called before the first frame update
     void Start()
     {
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
+        //inventory = new Inventory();
+        //uiInventory.SetInventory(inventory);
 
-        ItemWorld.SpawnItemWorld(new Vector3(20, 20), new Items { itemType = Items.ItemType.Bottles, amount = 1 });
+        //ItemWorld.SpawnItemWorld(new Vector3(20, 20), new Items { itemType = Items.ItemType.Bottles, amount = 1 });
     }
 
     // Update is called once per frame
@@ -53,8 +53,8 @@ public class PlayerControlScript : MonoBehaviour
                 ItemWorld itemWorld = hit.collider.GetComponent<ItemWorld>();
                 if(itemWorld != null)
                 {
-                    inventory.AddItem(itemWorld.GetItem());
-                    itemWorld.DestroySelf();
+                    //inventory.AddItem(itemWorld.GetItem());
+                    //itemWorld.DestroySelf();
                 }
 
             }
