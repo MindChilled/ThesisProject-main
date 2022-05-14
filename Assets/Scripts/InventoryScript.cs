@@ -149,7 +149,7 @@ public class InventoryScript : ItemContainer
         return number;
     }
 
-    public override Item RemoveItem(string itemID)
+    public override  Item RemoveItem(string itemID)
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
