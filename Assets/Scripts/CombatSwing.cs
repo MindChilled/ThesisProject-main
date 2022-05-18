@@ -18,9 +18,7 @@ public class CombatSwing : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            hitbox.gameObject.SetActive(true);
-            timerIsRunning = true;
-            //Debug.Log(timerIsRunning);
+            ActivateWeapon();
         }
         if (timerIsRunning)
         {
@@ -37,6 +35,13 @@ public class CombatSwing : MonoBehaviour
                 hitbox.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void ActivateWeapon()
+    {
+        hitbox.gameObject.SetActive(true);
+        timerIsRunning = true;
+        //Debug.Log(timerIsRunning);
     }
 
 

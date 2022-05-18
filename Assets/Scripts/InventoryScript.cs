@@ -35,11 +35,16 @@ public class InventoryScript : ItemContainer
     {
         if (Input.GetButtonDown("Inventory"))
         {
-            if (InventoryCanvas.enabled == true)
-                InventoryCanvas.enabled = false;
-            else if (InventoryCanvas.enabled == false)
-                InventoryCanvas.enabled = true;
+            EnableDisableInventory();
         }
+    }
+
+    public void EnableDisableInventory()
+    {
+        if (InventoryCanvas.enabled == true)
+            InventoryCanvas.enabled = false;
+        else if (InventoryCanvas.enabled == false)
+            InventoryCanvas.enabled = true;
     }
 
     private void SetStartingItems()
@@ -86,6 +91,7 @@ public class InventoryScript : ItemContainer
             {
                 itemSlots[i].Item = item;
                 itemSlots[i].Amount++;
+                //items.Add(item);
                 return true;
             }
         }

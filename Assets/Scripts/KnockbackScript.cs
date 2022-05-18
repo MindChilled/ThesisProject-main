@@ -38,7 +38,7 @@ public class KnockbackScript : MonoBehaviour
             {
                 //enemy.isKinematic = false;
                 Debug.Log("Knocking enemy back");
-                Vector2 difference = enemy.transform.position - transform.position;
+                Vector3 difference = enemy.transform.position - transform.position;
                 difference = difference.normalized * thrust;
                 enemy.AddForce(difference, ForceMode.Impulse);
                 //enemy.isKinematic = true;

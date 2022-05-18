@@ -56,4 +56,19 @@ public class SignScript : MonoBehaviour
         }
     }
 
+    public void InteractWithSign()
+    {
+        if(isPlayerNear)
+        {
+            if (dialogBox.IsActive())
+            {
+                dialogBox.gameObject.SetActive(false);
+            }
+            else
+            {
+                dialogBox.gameObject.SetActive(true);
+                dialogText.text = dialog;
+            }
+        }
+    }
 }

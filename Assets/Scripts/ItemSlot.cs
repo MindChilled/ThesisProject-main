@@ -136,7 +136,9 @@ public class ItemSlot : MonoBehaviour
 
     public void Start()
     {
+        amountText = GetComponentInChildren<Text>();
         amountText.text = "";
+
     }
     protected virtual void OnValidate()
     {

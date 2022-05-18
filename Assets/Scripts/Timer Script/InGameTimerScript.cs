@@ -40,7 +40,7 @@ public class InGameTimerScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time has run out!");
+                //Debug.Log("Time has run out!");
                 inGameTime = inGameTime + 10;
                 UpdateInGameClock();
                 timeRemaining = 1;
@@ -53,7 +53,7 @@ public class InGameTimerScript : MonoBehaviour
     {
         int InGameMinute = Mathf.FloorToInt(inGameTime % 60);
         int inGameHours = Mathf.FloorToInt(inGameTime / 60);
-        Debug.Log("In game time : " + inGameHours + " : " + InGameMinute);
+        //Debug.Log("In game time : " + inGameHours + " : " + InGameMinute);
         gameMinutes.text = InGameMinute.ToString();
         gameHours.text = inGameHours.ToString();
         if(inGameTime >= 1440)

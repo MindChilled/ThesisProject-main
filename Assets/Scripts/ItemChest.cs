@@ -21,6 +21,7 @@ public class ItemChest : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1") && isInRange == true)
         {
+            GamemanagerScript.instance.PickupObject();
             if(!isEmpty)
             {
                 Item itemCopy = item.GetCopy();

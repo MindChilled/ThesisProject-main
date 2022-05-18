@@ -4,14 +4,15 @@ using UnityEngine;
 
 public interface IItemContainer 
 {
-    int itemCount(string itemID);
+    //int itemCount(string itemID);
+    int ItemCount(string itemID);
     Item RemoveItem(string itemID);
+    bool RemoveItem(Item item);
     //bool ContainsItem(Item item);
     //bool RemoveItem(Item item);
     bool AddItem(Item item);
     bool isFull();
 
-    int ItemCount(string itemID);
 
     //bool CanAddItem(Item item, int amount = 1);
     //bool AddItem(Item item);

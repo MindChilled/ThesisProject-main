@@ -209,20 +209,6 @@ public class ItemContainer : MonoBehaviour, IItemContainer
         return true;
     }
 
-    public virtual int itemCount(string itemID)
-    {
-        int number = 0;
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
-            Debug.Log(itemSlots[i].Item);
-            if (itemSlots[i].Item.ID == itemID)
-            {
-                number++;
-            }
-        }
-        return number;
-    }
-
     public virtual Item RemoveItem(string itemID)
     {
         for (int i = 0; i < itemSlots.Length; i++)
@@ -241,19 +227,23 @@ public class ItemContainer : MonoBehaviour, IItemContainer
         return null;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public int ItemCount(string itemID)
+    {
+        int number = 0;
+
+        for(int i = 0; i < itemSlots.Length; i++)
+        {
+            Item item = itemSlots[i].Item;
+            if(item != null && item.ID == itemID)
+            {
+                number++;
+            }
+        }
+        return number;
+    }
+
+    public bool RemoveItem(Item item)
     {
         throw new NotImplementedException();
     }

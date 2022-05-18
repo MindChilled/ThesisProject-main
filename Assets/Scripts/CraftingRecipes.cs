@@ -22,16 +22,20 @@ public class CraftingRecipes : ScriptableObject
     {
         foreach(ItemAmount itemAmount in Materials)
         {
-            if(itemContainer.ItemCount(itemAmount.item.ID)< itemAmount.amount)
+            //Debug.Log("Checking for items, "+ itemContainer.ItemCount(itemAmount.item.ID) + " checking itemcount, next is : " + itemAmount.amount);
+
+            if(itemContainer.ItemCount(itemAmount.item.ID) < itemAmount.amount)
             {
+                Debug.Log("CanCraft returning false");
                 return false;
             }
         }
-        return false;
+        return true;
     }
 
     public bool Craft(IItemContainer itemContainer)
     {
+        Debug.Log("Attempting to craft");
         if(CanCraft(itemContainer))
         {
             foreach (ItemAmount itemAmount in Materials)
