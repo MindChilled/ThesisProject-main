@@ -11,8 +11,11 @@ public class GamemanagerScript : MonoBehaviour
     public void PickupObject()
     {
         //Debug.Log("GameManager pickupObject");
-        energyScript.ReduceEnergy(10);
-        audioManagerScript.PlayPickupSFX();
+        if(energyScript.isEnergyEmpty == false)
+        {
+            energyScript.ReduceEnergy(10);
+            audioManagerScript.PlayPickupSFX();
+        }
     }
 
     public void DropObject()

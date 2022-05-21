@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using System;
 using TMPro;
 
-public class ItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     //public event Action<BaseItemSlot> OnBeginDragEvent;
     //public event Action<BaseItemSlot> OnEndDragEvent;
@@ -14,7 +14,7 @@ public class ItemSlot : MonoBehaviour
     //public event Action<BaseItemSlot> OnDropEvent;
 
 
-    //private bool isDragging;
+    private bool isDragging;
     //private Color dragColor = new Color(1, 1, 1, 0.5f);
 
     //public override bool CanAddStack(Item item, int amount = 1)
@@ -37,39 +37,46 @@ public class ItemSlot : MonoBehaviour
     //    }
     //}
 
-    //public void OnBeginDrag(PointerEventData eventData)
-    //{
-    //    isDragging = true;
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        Debug.Log("On dragging start");
 
-    //    if (Item != null)
-    //        image.color = dragColor;
+        isDragging = true;
 
-    //    if (OnBeginDragEvent != null)
-    //        OnBeginDragEvent(this);
-    //}
+        if (Item != null)
+            //image.color = dragColor;
 
-    //public void OnEndDrag(PointerEventData eventData)
-    //{
-    //    isDragging = false;
+        if (OnBeginDragEvent != null)
+            OnBeginDragEvent(this);
+    }
 
-    //    if (Item != null)
-    //        image.color = normalColor;
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        Debug.Log("Dragging stop");
 
-    //    if (OnEndDragEvent != null)
-    //        OnEndDragEvent(this);
-    //}
+        isDragging = false;
 
-    //public void OnDrag(PointerEventData eventData)
-    //{
-    //    if (OnDragEvent != null)
-    //        OnDragEvent(this);
-    //}
+        if (Item != null)
+            //image.color = normalColor;
 
-    //public void OnDrop(PointerEventData eventData)
-    //{
-    //    if (OnDropEvent != null)
-    //        OnDropEvent(this);
-    //}
+        if (OnEndDragEvent != null)
+            OnEndDragEvent(this);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        Debug.Log("Dragging start");
+        if (OnDragEvent != null)
+            OnDragEvent(this);
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("Drop start");
+
+        if (OnDropEvent != null)
+            OnDropEvent(this);
+    }
 
     [SerializeField] Image Image;
     //[SerializeField] TMP_Text amountText;
@@ -78,7 +85,10 @@ public class ItemSlot : MonoBehaviour
     public event Action<ItemSlot> OnPointerEnterEvent;
     public event Action<ItemSlot> OnPointerExitEvent;
     public event Action<Item> OnRightClickEvent;
-
+    public event Action<ItemSlot> OnBeginDragEvent;
+    public event Action<ItemSlot> OnEndDragEvent;
+    public event Action<ItemSlot> OnDragEvent;
+    public event Action<ItemSlot> OnDropEvent;
     protected Item _item;
     public Item Item
     {
@@ -156,10 +166,20 @@ public class ItemSlot : MonoBehaviour
         {
             if (Item != null && OnRightClickEvent != null)
             {
+                //Debug.Log("OnRightClickEvent is supposed to go here");
                 OnRightClickEvent(Item);
             }
         }
         throw new System.NotImplementedException();
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        throw new NotImplementedException();
+    }
 }

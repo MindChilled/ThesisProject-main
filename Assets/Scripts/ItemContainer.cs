@@ -5,34 +5,39 @@ using System;
 
 public class ItemContainer : MonoBehaviour, IItemContainer
 {
-    //public List<ItemSlot> ItemSlots;
+    public List<ItemSlot> ItemSlots;
 
-    //public event Action<BaseItemSlot> OnPointerEnterEvent;
-    //public event Action<BaseItemSlot> OnPointerExitEvent;
-    //public event Action<BaseItemSlot> OnRightClickEvent;
-    //public event Action<BaseItemSlot> OnBeginDragEvent;
-    //public event Action<BaseItemSlot> OnEndDragEvent;
-    //public event Action<BaseItemSlot> OnDragEvent;
-    //public event Action<BaseItemSlot> OnDropEvent;
+    public event Action<ItemSlot> OnPointerEnterEvent;
+    public event Action<ItemSlot> OnPointerExitEvent;
+    public event Action<ItemSlot> OnRightClickEvent;
+    public event Action<ItemSlot> OnBeginDragEvent;
+    public event Action<ItemSlot> OnEndDragEvent;
+    public event Action<ItemSlot> OnDragEvent;
+    public event Action<ItemSlot> OnDropEvent;
 
     //protected virtual void OnValidate()
     //{
     //	GetComponentsInChildren(includeInactive: true, result: ItemSlots);
     //}
 
-    //protected virtual void Awake()
-    //{
-    //	for (int i = 0; i < ItemSlots.Count; i++)
-    //	{
-    //		ItemSlots[i].OnPointerEnterEvent += slot => EventHelper(slot, OnPointerEnterEvent);
-    //		ItemSlots[i].OnPointerExitEvent += slot => EventHelper(slot, OnPointerExitEvent);
-    //		ItemSlots[i].OnRightClickEvent += slot => EventHelper(slot, OnRightClickEvent);
-    //		ItemSlots[i].OnBeginDragEvent += slot => EventHelper(slot, OnBeginDragEvent);
-    //		ItemSlots[i].OnEndDragEvent += slot => EventHelper(slot, OnEndDragEvent);
-    //		ItemSlots[i].OnDragEvent += slot => EventHelper(slot, OnDragEvent);
-    //		ItemSlots[i].OnDropEvent += slot => EventHelper(slot, OnDropEvent);
-    //	}
-    //}
+    protected virtual void Awake()
+    {
+        for (int i = 0; i < ItemSlots.Count; i++)
+        {
+            ItemSlots[i].OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
+            ItemSlots[i].OnPointerExitEvent += slot => OnPointerExitEvent(slot);
+            //ItemSlots[i].OnRightClickEvent += slot => OnRightClickEvent(slot);
+            ItemSlots[i].OnBeginDragEvent += slot => OnBeginDragEvent(slot);
+            ItemSlots[i].OnEndDragEvent += slot => OnEndDragEvent(slot);
+            ItemSlots[i].OnDragEvent += slot => OnDragEvent(slot);
+            ItemSlots[i].OnDropEvent += slot => OnDropEvent(slot);
+        }
+    }
+
+    protected virtual void OnValidate()
+    {
+        itemSlots = GetComponentsInChildren<ItemSlot>();
+    }
 
     //private void EventHelper(BaseItemSlot itemSlot, Action<BaseItemSlot> action)
     //{
