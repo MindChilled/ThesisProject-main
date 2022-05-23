@@ -19,12 +19,13 @@ public class ItemStash : ItemContainer
 	protected override void OnValidate()
 	{
 		if (itemsParent != null)
-			itemsParent.GetComponentsInChildren(includeInactive: true, result: ItemSlots);
+			itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
+		//itemsParent.GetComponentsInChildren(includeInactive: true, result: ItemSlots);
 
 		if (spriteRenderer == null)
 			spriteRenderer = GetComponentInChildren<SpriteRenderer>(includeInactive: true);
 
-		spriteRenderer.enabled = false;
+		//spriteRenderer.enabled = false;
 	}
 
 	protected override void Awake()
@@ -107,11 +108,37 @@ public class ItemStash : ItemContainer
 		}
 	}
 
+	public bool AddItem(Item item)
+	{
+		//Debug.Log("Adding item " + item + "  to item stash");
+		for (int i = 0; i < itemSlots.Length; i++)
+		{
+			if (itemSlots[i].Item == null || (itemSlots[i].Item.ID == item.ID && itemSlots[i].Amount < item.MaximumStack))
+			{
+				itemSlots[i].Item = item;
+				itemSlots[i].Amount++;
+				//items.Add(item);
+				Debug.Log("Item " +item+" added to Stash");
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void DescribeItems()
+    {
+		for ( int i = 0; i < itemSlots.Length; i++)
+        {
+			Debug.Log("Item in " + i + " slot is " + itemSlots[i].Item.name);
+        }
+
+    }
+
 	public void InteractWithStash()
     {
 		if (isPlayerNear)
 		{
-			if (stashCanvas.active)
+			if (stashCanvas.activeInHierarchy)
 			{
 				stashCanvas.gameObject.SetActive(false);
 			}

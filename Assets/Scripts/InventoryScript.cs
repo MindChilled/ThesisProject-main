@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class InventoryScript : ItemContainer
 {
-    [SerializeField] List<Item> items;
+    //[SerializeField] List<Item> items;
     [SerializeField] Transform itemsParent;
     //[SerializeField] ItemSlot[] itemSlots;
     //[SerializeField] protected Item[] startingItems;
@@ -27,7 +27,7 @@ public class InventoryScript : ItemContainer
         if (itemsParent != null)
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
 
-        RefreshUI();
+        //RefreshUI();
 
     }
 
@@ -57,16 +57,16 @@ public class InventoryScript : ItemContainer
 
     private void RefreshUI()
     {
-        int i = 0;
-        for (; i < items.Count && i < itemSlots.Length; i++)
-        {
-            itemSlots[i].Item = items[i];
-        }
+        //int i = 0;
+        //for (; i < items.Count && i < itemSlots.Length; i++)
+        //{
+        //    itemSlots[i].Item = items[i];
+        //}
 
-        for (; i < itemSlots.Length; i++)
-        {
-            itemSlots[i].Item = null;
-        }
+        //for (; i < itemSlots.Length; i++)
+        //{
+        //    itemSlots[i].Item = null;
+        //}
     }
 
     public virtual bool CanAddItem(Item item, int amount = 1)
@@ -91,6 +91,7 @@ public class InventoryScript : ItemContainer
             {
                 itemSlots[i].Item = item;
                 itemSlots[i].Amount++;
+                Debug.Log("adding item to Inven");
                 //items.Add(item);
                 return true;
             }
@@ -102,8 +103,13 @@ public class InventoryScript : ItemContainer
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (items.Remove(item))
+            if (itemSlots[i].Item == item)
             {
+                itemSlots[i].Amount--;
+                if(itemSlots[i].Amount == 0)
+                {
+                    itemSlots[i].Item = null;
+                }
                 RefreshUI();
                 return true;
 
@@ -114,7 +120,9 @@ public class InventoryScript : ItemContainer
 
     public bool isFull()
     {
-        return items.Count >= itemSlots.Length;
+        Debug.Log("isFull triggered");
+        return false;
+        //return items.Count >= itemSlots.Length;
     }
 
     public bool ContainsItem(Item item)
@@ -154,6 +162,7 @@ public class InventoryScript : ItemContainer
         }
         return number;
     }
+
 
     public override  Item RemoveItem(string itemID)
     {

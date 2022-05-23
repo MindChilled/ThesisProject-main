@@ -7,16 +7,30 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] InventoryScript inventory;
     [SerializeField] ItemStash itemStash;
 
+    public static InventoryManager instance { get; private set; }
+
+
     private void Awake()
     {
         inventory.OnItemRightClickEvent += AddItemToStash;
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     public void AddItemToStash(Item item)
     {
-        if(inventory.RemoveItem(item))
+        //Debug.Log("Add item to stash");
+        if(inventory.RemoveItem(item.ID))
         {
             itemStash.AddItem(item);
+            itemStash.DescribeItems();
         }
     }
 
