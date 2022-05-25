@@ -6,6 +6,9 @@ public class GamemanagerScript : MonoBehaviour
 {
     [SerializeField] EnergyScript energyScript;
     [SerializeField] AudioManagerScript audioManagerScript;
+    [SerializeField] InGameTimerScript inGameTimerScript;
+    [SerializeField] RecyclerScript canRecyclerScript;
+
     public static GamemanagerScript instance { get; private set; }
 
     public void PickupObject()
@@ -33,6 +36,14 @@ public class GamemanagerScript : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    public void ChangeDay()
+    {
+        Debug.Log("Changing day");
+        inGameTimerScript.ChangeDay();
+        energyScript.ResetEnergy();
+        canRecyclerScript.RecycleItem();
     }
     // Start is called before the first frame update
     void Start()

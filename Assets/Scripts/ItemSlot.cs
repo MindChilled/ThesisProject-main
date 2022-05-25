@@ -144,10 +144,15 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         }
     }
 
-    public void DescribeItem()
+    public void AddItemToStash()
     {
         InventoryManager.instance.AddItemToStash(Item);
         //Debug.Log("Item is : " + Item.ItemName);
+    }
+
+    public void AddItemToInven()
+    {
+        InventoryManager.instance.RemoveItemFromStash(Item);
     }
 
     public void Start()
@@ -168,15 +173,15 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData != null )
+        if (eventData != null)
         {
-            if (Item != null )
+            if (Item != null)
             {
                 //Debug.Log("OnRightClickEvent is supposed to go here");
                 OnRightClickEvent(Item);
             }
         }
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -13,6 +13,8 @@ public class Item : ScriptableObject
     public Sprite ItemIcon;
     [Range(1,999)]
     public int MaximumStack = 1;
+    public int recycleType;
+    public int recycleValue;
 
 
     private void OnValidate()

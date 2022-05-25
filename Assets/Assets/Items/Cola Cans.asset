@@ -16,3 +16,5 @@ MonoBehaviour:
   ItemName: Cola Can
   ItemIcon: {fileID: 21300000, guid: 450e64cff7eaa914da32a1572512ade9, type: 3}
   MaximumStack: 4
+  recycleType: 1
+  recycleValue: 1

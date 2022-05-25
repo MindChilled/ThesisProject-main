@@ -817,7 +817,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 67972879}
-        m_MethodName: DescribeItem
+        m_MethodName: AddItemToInven
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2956,6 +2956,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyScript: {fileID: 1934560668}
   audioManagerScript: {fileID: 1659665337}
+  inGameTimerScript: {fileID: 1187473593}
+  canRecyclerScript: {fileID: 840153799}
 --- !u!4 &414115414
 Transform:
   m_ObjectHideFlags: 0
@@ -6132,7 +6134,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 800537504}
-        m_MethodName: DescribeItem
+        m_MethodName: AddItemToInven
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6284,6 +6286,7 @@ GameObject:
   - component: {fileID: 840153796}
   - component: {fileID: 840153795}
   - component: {fileID: 840153794}
+  - component: {fileID: 840153799}
   m_Layer: 0
   m_Name: Inven box
   m_TagString: Untagged
@@ -6359,7 +6362,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840153792}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -6410,6 +6413,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840153792}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &840153799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840153792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1c7b1dc82dbbe49adcfbec8fd9cb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeToRecycle: 1
+  recycleValueStored: 0
+  itemStash: {fileID: 840153794}
+  recycledItem: {fileID: 11400000, guid: 37fd7b6e275db77449ebf648bc82b21c, type: 2}
 --- !u!1 &857951944
 GameObject:
   m_ObjectHideFlags: 0
@@ -9169,7 +9188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeRemaining: 1
   timerIsRunning: 0
-  inGameTime: 0
+  inGameTime: 360
   inGameDate: 0
   inGameMonth: 1
   inGameYear: 0
@@ -9487,6 +9506,112 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205081352}
   m_CullTransparentMesh: 0
+--- !u!1 &1263056845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263056846}
+  - component: {fileID: 1263056849}
+  - component: {fileID: 1263056848}
+  - component: {fileID: 1263056847}
+  - component: {fileID: 1263056850}
+  m_Layer: 0
+  m_Name: Bed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1263056846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263056845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.66, y: 0.7, z: 7.6806}
+  m_LocalScale: {x: 0.9999998, y: 1, z: 2.401289}
+  m_Children: []
+  m_Father: {fileID: 1484160540}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1263056847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263056845}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1263056848
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263056845}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1263056849
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263056845}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1263056850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263056845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9786c31d9c42e459bfdbf9db7f58c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialog: 
+  isPlayerNear: 0
 --- !u!1 &1283957568
 GameObject:
   m_ObjectHideFlags: 0
@@ -9688,7 +9813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 1289799996}
-  itemStash: {fileID: 840153794}
+  itemStash: {fileID: 0}
 --- !u!1 &1290026125
 GameObject:
   m_ObjectHideFlags: 0
@@ -10359,7 +10484,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1422535127}
-        m_MethodName: DescribeItem
+        m_MethodName: AddItemToStash
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10805,6 +10930,7 @@ Transform:
   - {fileID: 1879217415}
   - {fileID: 1119581270}
   - {fileID: 840153793}
+  - {fileID: 1263056846}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14713,7 +14839,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1944863727}
-        m_MethodName: DescribeItem
+        m_MethodName: AddItemToStash
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

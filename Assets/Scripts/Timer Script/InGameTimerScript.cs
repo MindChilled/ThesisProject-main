@@ -138,4 +138,11 @@ public class InGameTimerScript : MonoBehaviour
     {
         Debug.Log("This is inGameYear : " + inGameYear);
     }
+
+    public void ChangeDay()
+    {
+        inGameDate = inGameDate + 1;
+        inGameTime = 350;
+        UpdateDate();
+    }
 }

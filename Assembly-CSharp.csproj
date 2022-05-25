@@ -66,7 +66,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AudioManager\AudioManagerScript.cs" />
     <Compile Include="Assets\Scripts\BaseItemSlot.cs" />
+    <Compile Include="Assets\Scripts\BedScript.cs" />
     <Compile Include="Assets\Scripts\CharacterMovementScript.cs" />
+    <Compile Include="Assets\Scripts\ChestScript.cs" />
     <Compile Include="Assets\Scripts\CombatEnemy.cs" />
     <Compile Include="Assets\Scripts\CombatSwing.cs" />
     <Compile Include="Assets\Scripts\CraftingRecipes.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="Assets\Scripts\ItemWorld.cs" />
     <Compile Include="Assets\Scripts\KnockbackScript.cs" />
     <Compile Include="Assets\Scripts\PlayerControlScript.cs" />
+    <Compile Include="Assets\Scripts\RecyclerScript.cs" />
     <Compile Include="Assets\Scripts\SignScript.cs" />
     <Compile Include="Assets\Scripts\Timer Script\InGameTimerScript.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

@@ -10,6 +10,11 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance { get; private set; }
 
 
+    public void SetStash(ItemStash itemStash)
+    {
+        this.itemStash = itemStash;
+    }    
+
     private void Awake()
     {
         inventory.OnItemRightClickEvent += AddItemToStash;
@@ -27,18 +32,23 @@ public class InventoryManager : MonoBehaviour
     public void AddItemToStash(Item item)
     {
         //Debug.Log("Add item to stash");
-        if(inventory.RemoveItem(item.ID))
-        {
-            itemStash.AddItem(item);
-            itemStash.DescribeItems();
+        if (itemStash != null)
+        { 
+            if(inventory.RemoveItem(item.ID))
+            {
+                itemStash.AddItem(item);
+                itemStash.DescribeItems();
+            }
         }
     }
 
     public void RemoveItemFromStash(Item item)
-    { 
-        if(!inventory.isFull() && itemStash.RemoveItem(item))
+    {
+        Debug.Log("Moving items form stash to inven");
+        if(itemStash.RemoveItem(item))
         {
             inventory.AddItem(item);
+        
         }
     }
     // Start is called before the first frame update

@@ -48,54 +48,14 @@ public class ItemStash : ItemContainer
 		}
 	}
 
-	//private void OnTriggerEnter(Collider other)
-	//{
-	//	CheckCollision(other.gameObject, true);
-	//}
-
-	//private void OnTriggerExit(Collider other)
-	//{
-	//	CheckCollision(other.gameObject, false);
-	//}
-
-	//private void OnTriggerEnter2D(Collider2D collision)
-	//{
-	//	CheckCollision(collision.gameObject, true);
-	//}
-
-	//private void OnTriggerExit2D(Collider2D collision)
-	//{
-	//	CheckCollision(collision.gameObject, false);
-	//}
-
-	//private void CheckCollision(GameObject gameObject, bool state)
-	//{
-	//	if (gameObject.CompareTag("Player"))
-	//	{
-	//		isInRange = state;
-	//		spriteRenderer.enabled = state;
-
-	//		if (!isInRange && isOpen)
-	//		{
-	//			isOpen = false;
-	//			itemsParent.gameObject.SetActive(false);
-	//			//character.CloseItemContainer(this);
-	//		}
-
-	//		//if (isInRange)
-	//		//	Debug.Log("Hewwo");
-	//		//	//character = gameObject.GetComponent<Character>();
-	//		//else
-	//		//	character = null;
-	//	}
-	//}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
-			Debug.Log("Player in range");
+			Debug.Log("Itemstash set to " + this);
 			isPlayerNear = true;
+			InventoryManager.instance.SetStash(this);
 		}
 	}
 
@@ -103,8 +63,10 @@ public class ItemStash : ItemContainer
 	{
 		if (other.CompareTag("Player"))
 		{
-			Debug.Log("Player left range");
+			Debug.Log("Itemstash has been cleared");
 			isPlayerNear = false;
+			InventoryManager.instance.SetStash(null);
+
 		}
 	}
 
@@ -148,4 +110,51 @@ public class ItemStash : ItemContainer
 			}
 		}
 	}
+
+	public virtual int RemoveItemAndCount(int recycleType)
+	{
+		Debug.Log("RemoveItemAndCount triggered");
+		int x = 0;
+		for (int i = 0; i < itemSlots.Length; i++)
+			{
+				if (itemSlots[i].Item != null)
+				{
+				
+					Debug.Log(ItemSlots[i].Item.recycleType + " : this is  item's recycleType");
+					Debug.Log("This is recycleType thats given :" + recycleType);
+					if (itemSlots[i].Item.recycleType == recycleType)
+						{ 
+			
+								while (itemSlots[i].Amount > 0)
+									{
+										x = x + itemSlots[i].Item.recycleValue;
+										itemSlots[i].Amount--;
+									}
+								//if (ItemSlots[i].Item == item)
+								//{
+				
+								//	ItemSlots[i].Amount--;
+								//	return true;
+								//}
+						}
+					}
+				Debug.Log(x + " supposed recycledValue");
+				}
+		//return false;
+		return x;
+	}
+
+	//public virtual bool RemoveItem(Item item)
+	//{
+	//	for (int i = 0; i < itemSlots.Count; i++)
+	//	{
+	//		if (itemSlots[i].Item == item)
+	//		{
+	//			itemSlots[i].Amount--;
+	//			return true;
+	//		}
+	//	}
+	//	return false;
+	//}
+
 }

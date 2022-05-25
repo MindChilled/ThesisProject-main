@@ -83,18 +83,18 @@ public class ItemContainer : MonoBehaviour, IItemContainer
     //	return false;
     //}
 
-    //public virtual bool RemoveItem(Item item)
-    //{
-    //	for (int i = 0; i < ItemSlots.Count; i++)
-    //	{
-    //		if (ItemSlots[i].Item == item)
-    //		{
-    //			ItemSlots[i].Amount--;
-    //			return true;
-    //		}
-    //	}
-    //	return false;
-    //}
+    public virtual bool RemoveItem(Item item)
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].Item == item)
+            {
+                itemSlots[i].Amount--;
+                return true;
+            }
+        }
+        return false;
+    }
 
     //public virtual Item RemoveItem(string itemID)
     //{
@@ -248,8 +248,8 @@ public class ItemContainer : MonoBehaviour, IItemContainer
         return number;
     }
 
-    public bool RemoveItem(Item item)
-    {
-        throw new NotImplementedException();
-    }
+    //public bool RemoveItem(Item item)
+    //{
+    //    throw new NotImplementedException();
+    //}
 }
