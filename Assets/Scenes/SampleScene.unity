@@ -6288,7 +6288,7 @@ GameObject:
   - component: {fileID: 840153794}
   - component: {fileID: 840153799}
   m_Layer: 0
-  m_Name: Inven box
+  m_Name: Can Recycler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12147,10 +12147,10 @@ GameObject:
   - component: {fileID: 1654991801}
   - component: {fileID: 1654991800}
   - component: {fileID: 1654991802}
-  - component: {fileID: 1654991799}
   - component: {fileID: 1654991803}
   - component: {fileID: 1654991804}
   - component: {fileID: 1654991805}
+  - component: {fileID: 1654991806}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -12174,20 +12174,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1654991799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1654991797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 505d1aea8eda6d74dbe16246a748198e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 1654991802}
-  playerSpeed: 5
 --- !u!23 &1654991800
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12270,7 +12256,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654991797}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a41789988aaa3dd4bab95a2a1eb8b10d, type: 3}
   m_Name: 
@@ -12293,6 +12279,21 @@ MonoBehaviour:
   thrust: 5
   playerDamage: 0
   floatTime: 0.2
+--- !u!114 &1654991806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654991797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d505aa0d286ee5c4280afe6d05293140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1654991802}
+  playerSpeed: 5
+  playerCoins: 0
 --- !u!1 &1655449817
 GameObject:
   m_ObjectHideFlags: 0

@@ -67,7 +67,6 @@
     <Compile Include="Assets\Scripts\AudioManager\AudioManagerScript.cs" />
     <Compile Include="Assets\Scripts\BaseItemSlot.cs" />
     <Compile Include="Assets\Scripts\BedScript.cs" />
-    <Compile Include="Assets\Scripts\CharacterMovementScript.cs" />
     <Compile Include="Assets\Scripts\ChestScript.cs" />
     <Compile Include="Assets\Scripts\CombatEnemy.cs" />
     <Compile Include="Assets\Scripts\CombatSwing.cs" />
@@ -90,6 +89,7 @@
     <Compile Include="Assets\Scripts\ItemStash.cs" />
     <Compile Include="Assets\Scripts\ItemWorld.cs" />
     <Compile Include="Assets\Scripts\KnockbackScript.cs" />
+    <Compile Include="Assets\Scripts\PlayerCharacterScript.cs" />
     <Compile Include="Assets\Scripts\PlayerControlScript.cs" />
     <Compile Include="Assets\Scripts\RecyclerScript.cs" />
     <Compile Include="Assets\Scripts\SignScript.cs" />
