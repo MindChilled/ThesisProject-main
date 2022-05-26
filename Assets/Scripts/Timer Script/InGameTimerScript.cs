@@ -8,6 +8,9 @@ public class InGameTimerScript : MonoBehaviour
 {
     public float timeRemaining;
     public bool timerIsRunning = false;
+    public bool isPaused = false;
+    [Header("Panel UI")]
+    public GameObject pausePanel;
     [Header ("Time")]
     public int inGameTime = 0;
     public int inGameDate = 0;
@@ -29,10 +32,12 @@ public class InGameTimerScript : MonoBehaviour
         // Starts the timer automatically
         timerIsRunning = true;
         UpdateMonth();
+        pausePanel.gameObject.SetActive(false);
+
     }
     void Update()
     {
-        if (timerIsRunning)
+        if (timerIsRunning && isPaused == false)
         {
             if (timeRemaining > 0)
             {
@@ -144,5 +149,17 @@ public class InGameTimerScript : MonoBehaviour
         inGameDate = inGameDate + 1;
         inGameTime = 350;
         UpdateDate();
+    }
+
+    public void PauseTimer()
+    {
+        pausePanel.gameObject.SetActive(true);
+        isPaused = true;
+    }
+
+    public void ResumeTimer()
+    {
+        pausePanel.gameObject.SetActive(false);
+        isPaused = false;
     }
 }

@@ -54,6 +54,16 @@ public class GamemanagerScript : MonoBehaviour
         sellBoxScript.SellItem();
 
     }
+
+    public void PauseTimer()
+    {
+        inGameTimerScript.PauseTimer();
+    }
+
+    public void ResumeTimer()
+    {
+        inGameTimerScript.ResumeTimer();
+    }
     // Start is called before the first frame update
     void Start()
     {
