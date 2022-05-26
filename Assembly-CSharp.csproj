@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\PlayerCharacterScript.cs" />
     <Compile Include="Assets\Scripts\PlayerControlScript.cs" />
     <Compile Include="Assets\Scripts\RecyclerScript.cs" />
+    <Compile Include="Assets\Scripts\SellBoxScript.cs" />
     <Compile Include="Assets\Scripts\SignScript.cs" />
     <Compile Include="Assets\Scripts\Timer Script\InGameTimerScript.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

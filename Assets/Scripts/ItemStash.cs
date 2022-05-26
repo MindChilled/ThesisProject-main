@@ -144,6 +144,26 @@ public class ItemStash : ItemContainer
 		return x;
 	}
 
+	public virtual int RemoveItemAndSell()
+	{
+		//Debug.Log("RemoveItemAndSell triggered");
+		int x = 0;
+		for (int i = 0; i < itemSlots.Length; i++)
+		{
+			if (itemSlots[i].Item != null)
+			{
+				while (itemSlots[i].Amount > 0)
+					{
+						x = x + itemSlots[i].Item.itemPrice;
+						itemSlots[i].Amount--;
+					}
+				}
+			}
+			//Debug.Log(x + " supposed recycledValue");
+		return x;
+		}
+		//return false;
+	}
 	//public virtual bool RemoveItem(Item item)
 	//{
 	//	for (int i = 0; i < itemSlots.Count; i++)
@@ -157,4 +177,4 @@ public class ItemStash : ItemContainer
 	//	return false;
 	//}
 
-}
+

@@ -18,3 +18,4 @@ MonoBehaviour:
   MaximumStack: 10
   recycleType: 0
   recycleValue: 0
+  itemPrice: 10

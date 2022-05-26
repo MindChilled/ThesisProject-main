@@ -8,6 +8,8 @@ public class GamemanagerScript : MonoBehaviour
     [SerializeField] AudioManagerScript audioManagerScript;
     [SerializeField] InGameTimerScript inGameTimerScript;
     [SerializeField] RecyclerScript canRecyclerScript;
+    [SerializeField] SellBoxScript sellBoxScript;
+    [SerializeField] PlayerCharacterScript playerCharacterScript;
 
     public static GamemanagerScript instance { get; private set; }
 
@@ -38,12 +40,19 @@ public class GamemanagerScript : MonoBehaviour
         }
     }
 
+    public void AddCoins(int coins)
+    {
+        playerCharacterScript.playerCoins = playerCharacterScript.playerCoins + coins;
+    }
+
     public void ChangeDay()
     {
         Debug.Log("Changing day");
         inGameTimerScript.ChangeDay();
         energyScript.ResetEnergy();
         canRecyclerScript.RecycleItem();
+        sellBoxScript.SellItem();
+
     }
     // Start is called before the first frame update
     void Start()

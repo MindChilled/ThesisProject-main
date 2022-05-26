@@ -16,3 +16,6 @@ MonoBehaviour:
   ItemName: Gold Coin
   ItemIcon: {fileID: 21300000, guid: be83f9c170513a745b0a4b008dfcb9b8, type: 3}
   MaximumStack: 10
+  recycleType: 0
+  recycleValue: 0
+  itemPrice: 1
