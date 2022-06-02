@@ -7,8 +7,8 @@ using UnityEditor;
 public class Item : ScriptableObject
 {
 
-    [SerializeField] string id;
-    public string ID { get { return id; } }
+    //[SerializeField] string id;
+    public string ID;
     public string ItemName;
     public Sprite ItemIcon;
     [Range(1,999)]
@@ -24,7 +24,7 @@ public class Item : ScriptableObject
     private void OnValidate()
     {
         string path = AssetDatabase.GetAssetPath(this);
-        id = AssetDatabase.AssetPathToGUID(path);
+        ID = AssetDatabase.AssetPathToGUID(path);
     }
 
     public virtual Item GetCopy()

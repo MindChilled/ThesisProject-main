@@ -37,7 +37,7 @@ public class InventoryManager : MonoBehaviour
             if(inventory.RemoveItem(item.ID))
             {
                 itemStash.AddItem(item);
-                itemStash.DescribeItems();
+                //itemStash.DescribeItems();
             }
         }
     }

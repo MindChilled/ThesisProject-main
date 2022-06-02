@@ -5,15 +5,16 @@ using System;
 
 public class ItemContainer : MonoBehaviour, IItemContainer
 {
-    public List<ItemSlot> ItemSlots;
+    //public List<ItemSlot> ItemSlots;
+    [SerializeField] public ItemSlot[] itemSlots;
 
-    public event Action<ItemSlot> OnPointerEnterEvent;
-    public event Action<ItemSlot> OnPointerExitEvent;
-    public event Action<ItemSlot> OnRightClickEvent;
-    public event Action<ItemSlot> OnBeginDragEvent;
-    public event Action<ItemSlot> OnEndDragEvent;
-    public event Action<ItemSlot> OnDragEvent;
-    public event Action<ItemSlot> OnDropEvent;
+    //public event Action<ItemSlot> OnPointerEnterEvent;
+    //public event Action<ItemSlot> OnPointerExitEvent;
+    //public event Action<ItemSlot> OnRightClickEvent;
+    //public event Action<ItemSlot> OnBeginDragEvent;
+    //public event Action<ItemSlot> OnEndDragEvent;
+    //public event Action<ItemSlot> OnDragEvent;
+    //public event Action<ItemSlot> OnDropEvent;
 
     //protected virtual void OnValidate()
     //{
@@ -22,16 +23,16 @@ public class ItemContainer : MonoBehaviour, IItemContainer
 
     protected virtual void Awake()
     {
-        for (int i = 0; i < ItemSlots.Count; i++)
-        {
-            ItemSlots[i].OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
-            ItemSlots[i].OnPointerExitEvent += slot => OnPointerExitEvent(slot);
-            //ItemSlots[i].OnRightClickEvent += slot => OnRightClickEvent(slot);
-            ItemSlots[i].OnBeginDragEvent += slot => OnBeginDragEvent(slot);
-            ItemSlots[i].OnEndDragEvent += slot => OnEndDragEvent(slot);
-            ItemSlots[i].OnDragEvent += slot => OnDragEvent(slot);
-            ItemSlots[i].OnDropEvent += slot => OnDropEvent(slot);
-        }
+        //for (int i = 0; i < ItemSlots.Count; i++)
+        //{
+        //    ItemSlots[i].OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
+        //    ItemSlots[i].OnPointerExitEvent += slot => OnPointerExitEvent(slot);
+        //    //ItemSlots[i].OnRightClickEvent += slot => OnRightClickEvent(slot);
+        //    ItemSlots[i].OnBeginDragEvent += slot => OnBeginDragEvent(slot);
+        //    ItemSlots[i].OnEndDragEvent += slot => OnEndDragEvent(slot);
+        //    ItemSlots[i].OnDragEvent += slot => OnDragEvent(slot);
+        //    ItemSlots[i].OnDropEvent += slot => OnDropEvent(slot);
+        //}
     }
 
     protected virtual void OnValidate()
@@ -147,7 +148,6 @@ public class ItemContainer : MonoBehaviour, IItemContainer
     //   {
     //       throw new NotImplementedException();
     //   }
-    [SerializeField] public ItemSlot[] itemSlots;
 
     public virtual bool CanAddItem(Item item, int amount = 1)
     {

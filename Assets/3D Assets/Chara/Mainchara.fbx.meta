@@ -44,6 +44,7 @@ ModelImporter:
     2300012: Hand.001
     2300014: Head
     2300016: Tie
+    2300018: //RootNode
     3300000: Body
     3300002: Ear
     3300004: Ear.001
@@ -53,6 +54,7 @@ ModelImporter:
     3300012: Hand.001
     3300014: Head
     3300016: Tie
+    3300018: //RootNode
     4300000: Body
     4300002: Head
     4300004: Ear.001

@@ -6,7 +6,7 @@ public class RecyclerScript : MonoBehaviour
 {
     [SerializeField] int typeToRecycle;
     public int recycleValueStored;
-    [SerializeField] ItemStash itemStash;
+    public ItemStash itemStash;
     [SerializeField] Item recycledItem;
 
     // Start is called before the first frame update

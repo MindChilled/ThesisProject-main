@@ -15,11 +15,11 @@ public class InventoryScript : ItemContainer
     public event Action<Item> OnItemRightClickEvent;
     private void Awake()
     {
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
-            itemSlots[i].OnRightClickEvent += OnItemRightClickEvent;
-        }
-        InventoryCanvas.enabled = false;
+        //for (int i = 0; i < itemSlots.Length; i++)
+        //{
+        //    itemSlots[i].OnRightClickEvent += OnItemRightClickEvent;
+        //}
+        //InventoryCanvas.enabled = false;
     }
     // Start is called before the first frame update
     private void OnValidate()
@@ -90,8 +90,8 @@ public class InventoryScript : ItemContainer
             if (itemSlots[i].Item == null || (itemSlots[i].Item.ID == item.ID && itemSlots[i].Amount < item.MaximumStack))
             {
                 itemSlots[i].Item = item;
-                itemSlots[i].Amount++;
-                Debug.Log("adding item to Inven");
+                itemSlots[i].Amount++; 
+                Debug.Log("adding item " +item+" to Inven at slot " + i);
                 //items.Add(item);
                 return true;
             }
@@ -182,6 +182,21 @@ public class InventoryScript : ItemContainer
         return null;
     }
 
+    public string[] SaveItemAsID()
+    {
+        string[] strArray;
+        strArray = null;
+
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            
+            itemSlots[i].Item.ID = strArray[i];
+            Debug.Log(strArray[i]);
+            //itemSlots[i].OnRightClickEvent += OnItemRightClickEvent;
+        }
+        
+            return strArray;
+    }
 
 }
 //[SerializeField] protected Item[] startingItems;

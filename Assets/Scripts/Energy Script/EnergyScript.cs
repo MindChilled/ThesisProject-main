@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnergyScript : MonoBehaviour
 {
-    [SerializeField] int energy;
+    public int energy;
     [SerializeField] int maxEnergy;
     [SerializeField] Image energyBar;
     [SerializeField] Image currEnergyBar;

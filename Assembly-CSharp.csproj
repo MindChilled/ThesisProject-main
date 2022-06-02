@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Energy Script\EnergyScript.cs" />
     <Compile Include="Assets\Scripts\GameManager\GamemanagerScript.cs" />
     <Compile Include="Assets\Scripts\IItemContainer.cs" />
+    <Compile Include="Assets\Scripts\InteractableWindowScript.cs" />
     <Compile Include="Assets\Scripts\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\InventoryScript.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
@@ -91,7 +92,9 @@
     <Compile Include="Assets\Scripts\KnockbackScript.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacterScript.cs" />
     <Compile Include="Assets\Scripts\PlayerControlScript.cs" />
+    <Compile Include="Assets\Scripts\PlayerData.cs" />
     <Compile Include="Assets\Scripts\RecyclerScript.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\SellBoxScript.cs" />
     <Compile Include="Assets\Scripts\SignScript.cs" />
     <Compile Include="Assets\Scripts\Timer Script\InGameTimerScript.cs" />

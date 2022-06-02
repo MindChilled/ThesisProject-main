@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using System;
 using TMPro;
 
+[Serializable]
 public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     //public event Action<BaseItemSlot> OnBeginDragEvent;

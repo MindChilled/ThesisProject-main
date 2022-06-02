@@ -31,7 +31,7 @@ public class ItemStash : ItemContainer
 	protected override void Awake()
 	{
 		base.Awake();
-		itemsParent.gameObject.SetActive(false);
+		//itemsParent.gameObject.SetActive(false);
 	}
 
 	private void Update()
@@ -87,14 +87,14 @@ public class ItemStash : ItemContainer
 		return false;
 	}
 
-	public void DescribeItems()
-    {
-		for ( int i = 0; i < itemSlots.Length; i++)
-        {
-			Debug.Log("Item in " + i + " slot is " + itemSlots[i].Item.name);
-        }
+	//public void DescribeItems()
+ //   {
+	//	for ( int i = 0; i < itemSlots.Length; i++)
+ //       {
+	//		Debug.Log("Item in " + i + " slot is " + itemSlots[i].Item.name);
+ //       }
 
-    }
+ //   }
 
 	public void InteractWithStash()
     {
@@ -111,6 +111,22 @@ public class ItemStash : ItemContainer
 		}
 	}
 
+	public string[] SaveItemAsID()
+	{
+		string[] strArray;
+		strArray = null;
+
+		for (int i = 0; i < itemSlots.Length; i++)
+		{
+
+			itemSlots[i].Item.ID = strArray[i];
+			Debug.Log(strArray[i]);
+			//itemSlots[i].OnRightClickEvent += OnItemRightClickEvent;
+		}
+
+		return strArray;
+	}
+
 	public virtual int RemoveItemAndCount(int recycleType)
 	{
 		Debug.Log("RemoveItemAndCount triggered");
@@ -120,7 +136,7 @@ public class ItemStash : ItemContainer
 				if (itemSlots[i].Item != null)
 				{
 				
-					Debug.Log(ItemSlots[i].Item.recycleType + " : this is  item's recycleType");
+					Debug.Log(itemSlots[i].Item.recycleType + " : this is  item's recycleType");
 					Debug.Log("This is recycleType thats given :" + recycleType);
 					if (itemSlots[i].Item.recycleType == recycleType)
 						{ 

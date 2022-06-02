@@ -6,7 +6,7 @@ public class SellBoxScript : MonoBehaviour
 {
     //[SerializeField] int typeToRecycle;
     //public int recycleValueStored;
-    [SerializeField] ItemStash itemStash;
+    public ItemStash itemStash;
     [SerializeField] int totalPriceofItems;
     //[SerializeField] Item recycledItem;
 

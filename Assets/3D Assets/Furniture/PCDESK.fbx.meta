@@ -46,6 +46,7 @@ ModelImporter:
     2300012: Sphere.003
     2300014: Sphere.004
     2300016: Sphere.005
+    2300018: //RootNode
     3300000: Desk
     3300002: Keyboard
     3300004: Knob
@@ -55,6 +56,7 @@ ModelImporter:
     3300012: Sphere.003
     3300014: Sphere.004
     3300016: Sphere.005
+    3300018: //RootNode
     4300000: Desk
     4300002: PC
     4300004: Keyboard
