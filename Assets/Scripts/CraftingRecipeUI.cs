@@ -30,11 +30,11 @@ public class CraftingRecipeUI : MonoBehaviour
 
     private void Start()
     {
-        foreach (ItemSlot itemSlot in itemSlots)
-        {
-            itemSlot.OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
-            itemSlot.OnPointerExitEvent += slot => OnPointerExitEvent(slot);
-        }
+        //foreach (ItemSlot itemSlot in itemSlots)
+        //{
+        //    itemSlot.OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
+        //    itemSlot.OnPointerExitEvent += slot => OnPointerExitEvent(slot);
+        //}
     }
 
     public void OnCraftButtonClick()

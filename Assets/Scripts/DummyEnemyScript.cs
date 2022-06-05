@@ -9,6 +9,9 @@ public class DummyEnemyScript : EnemyScript
     public float attackRadius;
     public Transform homeposition;
 
+    [Header("Animator")]
+    [SerializeField] Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +26,15 @@ public class DummyEnemyScript : EnemyScript
 
     void CheckDistance()
     {
-        if(Vector3.Distance(target.position, transform.position) <= chaseRadius && Vector3.Distance(target.position,transform.position) > attackRadius)
+        if (Vector3.Distance(target.position, transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius)
         {
-            Debug.Log("Chasing");
-            transform.position = Vector3.MoveTowards(transform.position,target.position, moveSpeed * Time.deltaTime);
+            //Debug.Log("Chasing");
+            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+            animator.SetBool("IsMove", true);
+        }
+        else
+        {
+            //animator.SetBool("IsMove", false);
         }
     }
 

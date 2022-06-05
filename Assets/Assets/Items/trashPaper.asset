@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb90b834df8a35f409c8f221fbadc457, type: 3}
   m_Name: trashPaper
   m_EditorClassIdentifier: 
-  id: ddde7bf24a581424daf12fb41b1c7e5a
-  ID: 
+  ID: ddde7bf24a581424daf12fb41b1c7e5a
   ItemName: trashPaper
-  ItemIcon: {fileID: 21300000, guid: 6eb8b98a212df174faeca0ad3760a459, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 60451eef0110cbc48974e143f873dfd8, type: 3}
   MaximumStack: 10
   recycleType: 2
   recycleValue: 1

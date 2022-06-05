@@ -9,6 +9,8 @@ public class GamemanagerScript : MonoBehaviour
     [Header("Game Inventories")]
     [SerializeField] InGameTimerScript inGameTimerScript;
     [SerializeField] RecyclerScript canRecyclerScript;
+    [SerializeField] RecyclerScript plasticRecyclerScript;
+    [SerializeField] RecyclerScript paperRecyclerScript;
     [SerializeField] SellBoxScript sellBoxScript;
     [SerializeField] InventoryScript inventoryScript;
     [Header("Player Data")]
@@ -25,6 +27,7 @@ public class GamemanagerScript : MonoBehaviour
         {
             energyScript.ReduceEnergy(10);
             audioManagerScript.PlayPickupSFX();
+            playerCharacterScript.animator.SetTrigger("PickupObj");
         }
     }
 
@@ -48,6 +51,7 @@ public class GamemanagerScript : MonoBehaviour
     public void AddCoins(int coins)
     {
         playerCharacterScript.playerCoins = playerCharacterScript.playerCoins + coins;
+        Debug.Log("Coins added : " + playerCharacterScript.playerCoins);
     }
     public void SaveGame()
     {
@@ -74,6 +78,8 @@ public class GamemanagerScript : MonoBehaviour
         inGameTimerScript.ChangeDay();
         energyScript.ResetEnergy();
         canRecyclerScript.RecycleItem();
+        paperRecyclerScript.RecycleItem();
+        plasticRecyclerScript.RecycleItem();
         sellBoxScript.SellItem();
 
     }

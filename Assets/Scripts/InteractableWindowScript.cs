@@ -6,11 +6,12 @@ public class InteractableWindowScript : MonoBehaviour
 {
     public GameObject interactablePanel;
     public bool isPlayerNear;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer.enabled = false;
     }
 
     // Update is called once per frame
@@ -39,6 +40,7 @@ public class InteractableWindowScript : MonoBehaviour
         {
             Debug.Log("Player in range");
             isPlayerNear = true;
+            spriteRenderer.enabled = true;
         }
     }
 
@@ -48,6 +50,8 @@ public class InteractableWindowScript : MonoBehaviour
         {
             Debug.Log("Player left range");
             isPlayerNear = false;
+            spriteRenderer.enabled = false;
+
         }
     }
 }

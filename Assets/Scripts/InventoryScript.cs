@@ -10,7 +10,7 @@ public class InventoryScript : ItemContainer
     [SerializeField] Transform itemsParent;
     //[SerializeField] ItemSlot[] itemSlots;
     //[SerializeField] protected Item[] startingItems;
-    [SerializeField] Canvas InventoryCanvas;
+    [SerializeField] GameObject InventoryPanel;
 
     public event Action<Item> OnItemRightClickEvent;
     private void Awake()
@@ -33,19 +33,10 @@ public class InventoryScript : ItemContainer
 
     private void Update()
     {
-        if (Input.GetButtonDown("Inventory"))
-        {
-            EnableDisableInventory();
-        }
+ 
     }
 
-    public void EnableDisableInventory()
-    {
-        if (InventoryCanvas.enabled == true)
-            InventoryCanvas.enabled = false;
-        else if (InventoryCanvas.enabled == false)
-            InventoryCanvas.enabled = true;
-    }
+
 
     private void SetStartingItems()
     {
@@ -53,6 +44,11 @@ public class InventoryScript : ItemContainer
         //{
         //    AddItem(item.GetCopy());
         //}
+    }
+
+    public void Start()
+    {
+        //EnableDisableInventory();
     }
 
     private void RefreshUI()

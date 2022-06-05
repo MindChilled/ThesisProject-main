@@ -31,7 +31,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItemToStash(Item item)
     {
-        //Debug.Log("Add item to stash");
+        Debug.Log("Add item to stash");
         if (itemStash != null)
         { 
             if(inventory.RemoveItem(item.ID))

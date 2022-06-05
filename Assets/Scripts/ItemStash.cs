@@ -14,9 +14,14 @@ public class ItemStash : ItemContainer
 
 	public bool isPlayerNear;
 	public GameObject stashCanvas;
-	//private Character character;
+    //private Character character;
 
-	protected override void OnValidate()
+
+    public void Start()
+    {
+		spriteRenderer.enabled = false;
+    }
+    protected override void OnValidate()
 	{
 		if (itemsParent != null)
 			itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
@@ -56,6 +61,7 @@ public class ItemStash : ItemContainer
 			Debug.Log("Itemstash set to " + this);
 			isPlayerNear = true;
 			InventoryManager.instance.SetStash(this);
+			spriteRenderer.enabled = true;
 		}
 	}
 
@@ -66,7 +72,7 @@ public class ItemStash : ItemContainer
 			Debug.Log("Itemstash has been cleared");
 			isPlayerNear = false;
 			InventoryManager.instance.SetStash(null);
-
+			spriteRenderer.enabled = false;
 		}
 	}
 

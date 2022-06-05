@@ -38,58 +38,58 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     //    }
     //}
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        Debug.Log("On dragging start");
+    //public void OnBeginDrag(PointerEventData eventData)
+    //{
+    //    Debug.Log("On dragging start");
 
-        isDragging = true;
+    //    isDragging = true;
 
-        if (Item != null)
-            //image.color = dragColor;
+    //    if (Item != null)
+    //        //image.color = dragColor;
 
-        if (OnBeginDragEvent != null)
-            OnBeginDragEvent(this);
-    }
+    //    if (OnBeginDragEvent != null)
+    //        OnBeginDragEvent(this);
+    //}
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        Debug.Log("Dragging stop");
+    //public void OnEndDrag(PointerEventData eventData)
+    //{
+    //    Debug.Log("Dragging stop");
 
-        isDragging = false;
+    //    isDragging = false;
 
-        if (Item != null)
-            //image.color = normalColor;
+    //    if (Item != null)
+    //        //image.color = normalColor;
 
-        if (OnEndDragEvent != null)
-            OnEndDragEvent(this);
-    }
+    //    if (OnEndDragEvent != null)
+    //        OnEndDragEvent(this);
+    //}
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        Debug.Log("Dragging start");
-        if (OnDragEvent != null)
-            OnDragEvent(this);
-    }
+    //public void OnDrag(PointerEventData eventData)
+    //{
+    //    Debug.Log("Dragging start");
+    //    if (OnDragEvent != null)
+    //        OnDragEvent(this);
+    //}
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        Debug.Log("Drop start");
+    //public void OnDrop(PointerEventData eventData)
+    //{
+    //    Debug.Log("Drop start");
 
-        if (OnDropEvent != null)
-            OnDropEvent(this);
-    }
+    //    if (OnDropEvent != null)
+    //        OnDropEvent(this);
+    //}
 
     [SerializeField] Image Image;
     //[SerializeField] TMP_Text amountText;
     [SerializeField] Text amountText;
 
-    public event Action<ItemSlot> OnPointerEnterEvent;
-    public event Action<ItemSlot> OnPointerExitEvent;
-    public event Action<Item> OnRightClickEvent;
-    public event Action<ItemSlot> OnBeginDragEvent;
-    public event Action<ItemSlot> OnEndDragEvent;
-    public event Action<ItemSlot> OnDragEvent;
-    public event Action<ItemSlot> OnDropEvent;
+    //public event Action<ItemSlot> OnPointerEnterEvent;
+    //public event Action<ItemSlot> OnPointerExitEvent;
+    //public event Action<Item> OnRightClickEvent;
+    //public event Action<ItemSlot> OnBeginDragEvent;
+    //public event Action<ItemSlot> OnEndDragEvent;
+    //public event Action<ItemSlot> OnDragEvent;
+    //public event Action<ItemSlot> OnDropEvent;
     protected Item _item;
     public Item Item
     {
@@ -179,7 +179,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
             if (Item != null)
             {
                 //Debug.Log("OnRightClickEvent is supposed to go here");
-                OnRightClickEvent(Item);
+                //OnRightClickEvent(Item);
             }
         }
         //throw new System.NotImplementedException();

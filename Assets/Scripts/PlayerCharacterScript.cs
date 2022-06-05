@@ -14,17 +14,33 @@ public class PlayerCharacterScript : MonoBehaviour
     [Header("Player Stats")]
     public int playerCoins;
 
+    [Header("Animator")]
+    public Animator animator;
+
+    [Header("Inventory")]
+    [SerializeField] GameObject inventoryPanel;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //animator = GetComponent<Animator>();
+        EnableDisableInventory();
+    }
 
+    public void EnableDisableInventory()
+    {
+        if (inventoryPanel.gameObject.active)
+            inventoryPanel.SetActive(false);
+        else
+            inventoryPanel.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(animator);
 
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -37,17 +53,31 @@ public class PlayerCharacterScript : MonoBehaviour
 
         if (move != Vector3.zero)
         {
+            animator.SetBool("IsMove", true);
             gameObject.transform.forward = move;
+            //Debug.Log("Moving character");
+            
         }
+        else
+        {
+            animator.SetBool("IsMove", false);
+        }
+        //animator.SetTrigger("stopRunning");
+
 
         // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        //if (Input.GetButtonDown("Jump") && groundedPlayer)
+        //{
+        //    playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        //}
+
+        if (Input.GetButtonDown("Inventory"))
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            EnableDisableInventory();
         }
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+        //playerVelocity.y += gravityValue * Time.deltaTime;
+        //controller.Move(playerVelocity * Time.deltaTime);
     }
     // Start is called before the first frame update
 }

@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb90b834df8a35f409c8f221fbadc457, type: 3}
   m_Name: recycledPlastic
   m_EditorClassIdentifier: 
-  id: 21378fef6b317f8439e5e3a96aa4de0f
-  ID: 
+  ID: 21378fef6b317f8439e5e3a96aa4de0f
   ItemName: 
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: 21300000, guid: 1dff097d0560807488a9cb59bf86ceb3, type: 3}
   MaximumStack: 10
   recycleType: 0
   recycleValue: 0
